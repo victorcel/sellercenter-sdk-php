@@ -1,6 +1,6 @@
 ## 1) Requirements
 
-PHP 5.5 and later.
+PHP 7.4 and later.
 
 ### Composer
 You can install the sdk via [Composer](http://getcomposer.org/). Run the following command:
