@@ -6,7 +6,7 @@ PHP 7.4 and later.
 You can install the sdk via [Composer](http://getcomposer.org/). Run the following command:
 
 ```bash
-composer require rocket-labs/sellercenter-sdk-php
+composer require victorcel/sellercenter-sdk-php:^1.0
 ```
 
 To use the sdk code, use Composer's [autoload](https://getcomposer.org/doc/00-intro.md#autoloading):
