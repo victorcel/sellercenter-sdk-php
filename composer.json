@@ -1,0 +1,19 @@
+{
+  "name": "victorcel/sellercenter-sdk-php",
+  "description": "SellerCenter SDK for PHP",
+  "license": "MIT",
+  "require": {
+    "php": "^7.4|^8.0",
+    "guzzlehttp/guzzle": "^7.0",
+    "psr/http-message": "~1.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~4.8,<5.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "": "src"
+    }
+  },
+  "minimum-stability": "stable"
+}
