@@ -111,6 +111,11 @@ abstract class ProductAbstract extends RequestBuilderAbstract
     protected $quantity;
 
     /**
+     * @var array
+     */
+    protected $businessUnits = [];
+
+    /**
      * @param string $sellerSku
      * @return static
      */
@@ -307,6 +312,48 @@ abstract class ProductAbstract extends RequestBuilderAbstract
     public function setQuantity($quantity)
     {
         $this->quantity = $quantity;
+        return $this;
+    }
+
+    /**
+     * @param string $operatorCode
+     * @param float $price
+     * @param float|null $specialPrice
+     * @param \DateTimeInterface|null $specialFromDate
+     * @param \DateTimeInterface|null $specialToDate
+     * @param int $stock
+     * @param string $status
+     * @return static
+     */
+    public function addBusinessUnit(
+        $operatorCode,
+        $price,
+        $specialPrice = null,
+        \DateTimeInterface $specialFromDate = null,
+        \DateTimeInterface $specialToDate = null,
+        $stock = 0,
+        $status = 'active'
+    )
+    {
+        $this->businessUnits[] = [
+            'OperatorCode' => $operatorCode,
+            'Price' => number_format($price, 2, '.', ''),
+            'SpecialPrice' => $specialPrice ? number_format($specialPrice, 2, '.', '') : '',
+            'SpecialFromDate' => $specialFromDate ? $specialFromDate->format('Y-m-d H:i:s') : '',
+            'SpecialToDate' => $specialToDate ? $specialToDate->format('Y-m-d H:i:s') : '',
+            'Stock' => (string)$stock,
+            'Status' => $status
+        ];
+        return $this;
+    }
+
+    /**
+     * @param array $businessUnits
+     * @return static
+     */
+    public function setBusinessUnits(array $businessUnits)
+    {
+        $this->businessUnits = $businessUnits;
         return $this;
     }
 
